@@ -4,7 +4,7 @@ plugins {
     //id ("com.google.devtools.ksp")
     //id ("kotlin-parcelize")
     //id("dagger.hilt.android.plugin")
-    //kotlin("kapt")
+    kotlin("kapt")
 }
 
 android {
@@ -56,8 +56,7 @@ android {
 
 dependencies {
 
-    implementation(project(":a_patterns"))
-
+    implementation(project(":patterns"))
     implementation (libs.androidx.core.ktx)
     implementation (libs.androidx.lifecycle.runtime.ktx)
     implementation (libs.androidx.datastore.preferences)
@@ -73,8 +72,30 @@ dependencies {
     implementation(libs.compose.material3.window.size)
     implementation(libs.activity.compose)
     implementation(libs.coil.compose)
-
+    implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation ("com.airbnb.android:lottie-compose:6.0.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+
+    val lifecycle_version = "2.6.1"
+    val arch_version = "2.2.0"
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // ViewModel utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+    // Lifecycle utilities for Compose
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycle_version")
+    // Saved state module for ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+
+    // Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+
+    // optional - helpers for implementing LifecycleOwner in a Service
+    implementation("androidx.lifecycle:lifecycle-service:$lifecycle_version")
+    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+    implementation("androidx.lifecycle:lifecycle-process:$lifecycle_version")
+
 
     implementation(libs.decompose)
     implementation(libs.decompose.compose)

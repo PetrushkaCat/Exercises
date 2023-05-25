@@ -1,14 +1,19 @@
 package cat.petrushkacat.exercises
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import cat.petrushkacat.a_patterns.CoffeeBase
@@ -21,6 +26,7 @@ import cat.petrushkacat.a_patterns.Sun
 import cat.petrushkacat.a_patterns.WeatherSource
 import cat.petrushkacat.exercises.ui.Center
 import cat.petrushkacat.exercises.ui.ObserverUi
+import cat.petrushkacat.exercises.counter.CounterActivity
 import cat.petrushkacat.exercises.ui.theme.ExercisesTheme
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -60,8 +66,18 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Center()
-
+                    //Center()
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Button(onClick = {
+                            startActivity(Intent(this@MainActivity, CounterActivity::class.java))
+                        },
+                            content = {
+                                Text("Start Counter Activity")
+                            })
+                    }
                 }
             }
         }
