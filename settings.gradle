@@ -14,4 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Exercises"
 include ':app'
-include ':patterns'
+include ':foursquare_core'
+include ':foursquare_data'
+include ':foursquare_app'

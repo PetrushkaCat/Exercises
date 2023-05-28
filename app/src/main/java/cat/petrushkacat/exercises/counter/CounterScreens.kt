@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,7 +27,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -58,7 +58,7 @@ fun CounterScreenMain() {
         composable(CounterScreens.Screen2.name) {
             CompositionLocalProvider(LocalViewModelStoreOwner provides viewModelStoreOwner) {
                 CounterScreen2 {
-                    navController.navigate(CounterScreens.Screen1.name)
+                    navController.popBackStack()
                 }
             }
         }
@@ -72,7 +72,7 @@ fun CounterScreen1(
 ) {
 
     val counterViewModel = viewModel<CounterViewModel>(LocalViewModelStoreOwner.current!!)
-    val roundValue by counterViewModel.currentRoundValue.collectAsStateWithLifecycle()
+    val roundValue by counterViewModel.currentRoundValue.collectAsState()
 
     Column(
         modifier = Modifier

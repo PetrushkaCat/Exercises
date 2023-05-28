@@ -1,18 +1,15 @@
 package cat.petrushkacat.exercises.counter
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import cat.petrushkacat.exercises.ui.Center
 import cat.petrushkacat.exercises.ui.theme.ExercisesTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

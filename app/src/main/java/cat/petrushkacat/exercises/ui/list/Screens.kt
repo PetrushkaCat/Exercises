@@ -1,17 +1,11 @@
 package cat.petrushkacat.exercises.ui.list
 
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,40 +17,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.LinearProgressIndicator
-import androidx.compose.material3.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.Text as Text3
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Female
 import androidx.compose.material.icons.filled.Male
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -65,10 +52,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -80,7 +64,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -145,7 +128,6 @@ fun MainScreen() {
         })
 }
 
-@Preview
 @Composable
 fun Screen1() {
     val users = UsersGenerator.generateUsers()
@@ -198,7 +180,6 @@ fun Screen1Item(user: User) {
     }
 }
 
-@Preview
 @Composable
 fun Screen2() {
     val users = UsersGenerator.generateUsers()
@@ -254,7 +235,6 @@ fun Screen2Item(user: User) {
 }
 
 
-@Preview
 @Composable
 fun Screen3() {
     val titles = listOf("Home", "Garden", "Kitchen", "Pharmacy", "Work", "Mall")
@@ -296,7 +276,6 @@ fun Screen3Item(
     }
 }
 
-@Preview
 @Composable
 fun Screen4() {
     val users = UsersGenerator.generateUsers()
@@ -424,7 +403,6 @@ fun Screen4Item3() {
     Divider(Modifier.fillMaxWidth())
 }
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
-@Preview
 @Composable
 fun Screen5() {
     val scope = rememberCoroutineScope()

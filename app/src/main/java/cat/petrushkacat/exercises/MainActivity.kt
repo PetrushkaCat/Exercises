@@ -16,17 +16,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import cat.petrushkacat.a_patterns.CoffeeBase
-import cat.petrushkacat.a_patterns.CoffeeJava
-import cat.petrushkacat.a_patterns.Country
-import cat.petrushkacat.a_patterns.Factory
-import cat.petrushkacat.a_patterns.Observer
-import cat.petrushkacat.a_patterns.RailDeliveryType
-import cat.petrushkacat.a_patterns.Sun
-import cat.petrushkacat.a_patterns.WeatherSource
-import cat.petrushkacat.exercises.ui.Center
-import cat.petrushkacat.exercises.ui.ObserverUi
 import cat.petrushkacat.exercises.counter.CounterActivity
+import cat.petrushkacat.exercises.patterns.CoffeeBase
+import cat.petrushkacat.exercises.patterns.CoffeeJava
+import cat.petrushkacat.exercises.patterns.Country
+import cat.petrushkacat.exercises.patterns.Factory
+import cat.petrushkacat.exercises.patterns.Observer
+import cat.petrushkacat.exercises.patterns.RailDeliveryType
+import cat.petrushkacat.exercises.patterns.Sun
+import cat.petrushkacat.exercises.patterns.WeatherSource
 import cat.petrushkacat.exercises.ui.theme.ExercisesTheme
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -49,7 +47,8 @@ class MainActivity : ComponentActivity() {
 
         val russiaDelivery = Factory().createDelivery(
             Country.Russia("company", 1000, 303,
-                RailDeliveryType(1520, true))
+                RailDeliveryType(1520, true)
+            )
         )
 
         Log.d("pattern_cofeee", coffee.toString())

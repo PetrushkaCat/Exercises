@@ -14,8 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Exercises"
         tools:targetApi="31">
+
         <activity
-            android:name=".MainActivity"
+            android:name="cat.petrushkacat.exercises.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Exercises">
             <intent-filter>
