@@ -9,11 +9,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cat.petrushkacat.foursquare_app.AuthStorage
 import cat.petrushkacat.foursquare_app.CLIENT_ACCESS_CODE_REQUEST
 import cat.petrushkacat.foursquare_app.CLIENT_ID
@@ -24,7 +24,7 @@ fun AuthScreen(
     onTokenObtained: () -> Unit
 ) {
     val context = LocalContext.current
-    val token = AuthStorage.token.collectAsState()
+    val token = AuthStorage.token.collectAsStateWithLifecycle()
     Column(modifier = Modifier
         .fillMaxSize()
         .padding(16.dp),

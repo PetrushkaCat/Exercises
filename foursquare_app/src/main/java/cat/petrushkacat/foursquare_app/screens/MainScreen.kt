@@ -7,6 +7,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavOptions
@@ -26,8 +28,9 @@ sealed class FoursquareScreen(val route: String) {
 @Composable
 fun MainScreen() {
     val navController = rememberNavController()
-    val token by AuthStorage.token.collectAsState()
-    val viewModel = viewModel<FoursquareMainViewModel>()
+    val token by AuthStorage.token.collectAsStateWithLifecycle()
+    val viewModel = hiltViewModel<FoursquareMainViewModel>()
+
     val context = LocalContext.current
     val viewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
         "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"

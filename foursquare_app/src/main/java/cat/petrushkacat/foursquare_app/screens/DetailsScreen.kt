@@ -28,6 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cat.petrushkacat.foursquare_app.FoursquareMainViewModel
 
@@ -36,8 +38,8 @@ import cat.petrushkacat.foursquare_app.FoursquareMainViewModel
 fun DetailsScreen(
     onBackClicked: () -> Unit
 ) {
-    val viewModel = viewModel<FoursquareMainViewModel>()
-    val details by viewModel.details.collectAsState()
+    val viewModel = hiltViewModel<FoursquareMainViewModel>()
+    val details by viewModel.details.collectAsStateWithLifecycle()
 
     if (details!= null) {
         Column(
